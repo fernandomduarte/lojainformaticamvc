@@ -23,8 +23,8 @@
 			<td>R$ <?php echo number_format($item['price'], 2, ',', '.'); ?></td>
 			<td><?php echo $item['quantity']; ?></td>
 			<td>
-				<a href="<?php echo BASE_URL; ?>product/sell/<?php echo $item['id']; ?>">Vender</a>
 				<a href="<?php echo BASE_URL; ?>product/edit/<?php echo $item['id']; ?>">Editar</a>
+				<a href="<?php echo BASE_URL; ?>product/sell/<?php echo $item['id']; ?>">Vender</a>
 			</td>
 		</tr>
 	<?php endforeach; ?>
