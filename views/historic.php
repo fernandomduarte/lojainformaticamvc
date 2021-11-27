@@ -1,6 +1,6 @@
 <h2>Histórico de Vendas</h2>
 
-<table border='1'>
+<table border="1">
 	<thead>
 		<tr>
 			<th>Cód.</th>

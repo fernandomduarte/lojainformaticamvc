@@ -5,7 +5,7 @@
 </fieldset>
 
 <h2>Produtos em Estoque</h2>
-<table border='1'>
+<table border="1">
 	<thead>
 		<tr>
 			<th>Cód.</th>
