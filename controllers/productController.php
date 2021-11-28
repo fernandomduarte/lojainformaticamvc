@@ -56,7 +56,7 @@ class productController extends Controller {
 			
 		}
 		$data['info'] = $p->getOne($id);
-
+		
 		$this->loadTemplate('edit', $data);
 	}
 
