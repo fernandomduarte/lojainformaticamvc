@@ -15,6 +15,7 @@
 					<a href="<?php echo BASE_URL; ?>">home</a>
 					<a href="<?php echo BASE_URL; ?>product/add">cadastrar produto</a>
 					<a href="<?php echo BASE_URL; ?>sales/historic">histórico de vendas</a>
+					<a href="<?php echo BASE_URL; ?>relatorio">relatório</a>
 					<a href="<?php echo BASE_URL; ?>login/sair">sair</a>
 				</nav>
 			</div>
