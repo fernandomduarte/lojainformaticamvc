@@ -3,7 +3,9 @@
 class loginController extends Controller {
 
     public function index() {
-        $data = array();
+        $data = array(
+            'msg' => ''
+        );
 
         if (!empty($_POST['name']) && !empty($_POST['password'])) {
             $user = $_POST['name'];

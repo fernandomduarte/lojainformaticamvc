@@ -46,6 +46,7 @@ h2 {
     text-align: center;
     margin: 10px 0 0 0;
     padding: 0;
+    margin-bottom: 15px;
 }
 
 fieldset {
@@ -99,7 +100,7 @@ table a:hover {
 }
 
 .form .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .form input[type=text],

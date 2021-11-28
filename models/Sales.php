@@ -7,7 +7,6 @@ class Sales extends Model {
 
         $sql = "SELECT * FROM sales";
         $sql = $this->db->query($sql);
-        $sql->execute();
 
         if ($sql->rowCount() > 0) {
             $array = $sql->fetchAll();
