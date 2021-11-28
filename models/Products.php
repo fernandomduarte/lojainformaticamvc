@@ -51,13 +51,14 @@ class Products extends Model {
         return true;
 	}
 
-    public function editProduct($name, $quantity, $min_quantity, $price, $id) {
-        $sql = "UPDATE products SET name = :name, quantity = :quantity, min_quantity = :min_quantity, price = :price WHERE id = :id";
+    public function editProduct($name, $quantity, $min_quantity, $price, $image_name, $id) {
+        $sql = "UPDATE products SET name = :name, quantity = :quantity, min_quantity = :min_quantity, price = :price, url_image = :image_name WHERE id = :id";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(':name', $name);
         $sql->bindValue(':quantity', $quantity);
         $sql->bindValue(':min_quantity', $min_quantity);
         $sql->bindValue(':price', $price);
+        $sql->bindValue(':image_name', $image_name);
         $sql->bindValue(':id', $id);
         $sql->execute();
 

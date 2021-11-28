@@ -14,6 +14,13 @@ $(document).ready(function(){
 		$('#barcode').attr('checked', false);
 	}
 
+	/**
+	 * Verfica se a foto esta carregada no formulário
+	**/
+	if ($('#preview').val() != '') {
+		$('#image').removeAttr('required');
+	} 
+	
 	// autofocus e máscara dos inputs
 	$('#search').focus();
 	$('#name').focus();
@@ -25,7 +32,7 @@ $(document).ready(function(){
 
 /**
  * Revisão do código é necessário
- 
+*/ 
 function previewImage() {
 	var imagem = document.querySelector('#image').files[0];
 	var preview = document.querySelector('#preview');
@@ -37,9 +44,8 @@ function previewImage() {
 
 	if (imagem) {
 		reader.readAsDataURL(imagem);
+
 	} else {
 		preview.src = '';
 	}
 }
-
-*/

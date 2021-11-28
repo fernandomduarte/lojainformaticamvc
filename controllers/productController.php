@@ -37,23 +37,29 @@ class productController extends Controller {
 		$p = new Products();
 		$f = new FiltersHelper();
 
-		if (!empty($_POST['name'])) {
+		if (!empty($_POST['name']) && isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
 			$name = ucfirst(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING));
 			$quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT);
 			$min_quantity = filter_input(INPUT_POST, 'min_quantity', FILTER_VALIDATE_INT);
 			$price = $f->filter_float('price');
-			
-			if ($name && $quantity && $min_quantity && $price) {
-				$p->editProduct($name, $quantity, $min_quantity, $price, $id);
 
-				header("Location: ".BASE_URL);
-				exit;
+			$granted = array('image/jpeg', 'image/jpg', 'image/png');
 
-			} else {
-				header("Location: ".BASE_URL.'edit');
-				exit;
-			}
-			
+			if (in_array($_FILES['image']['type'], $granted)) {
+				$image_name = md5(time().rand(0,9999)).'.jpg';
+
+				move_uploaded_file($_FILES['image']['tmp_name'], 'assets/images/'.$image_name);
+
+				if ($name && $quantity && $min_quantity && $price && $image_name) {
+					$p->editProduct($name, $quantity, $min_quantity, $price, $image_name, $id);
+	
+					header("Location: ".BASE_URL);
+					exit;
+				} 
+			} 
+			header("Location: ".BASE_URL."edit");
+			exit;
+				
 		}
 		$data['info'] = $p->getOne($id);
 		
