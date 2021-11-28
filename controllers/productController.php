@@ -75,8 +75,9 @@ class productController extends Controller {
 
 		$data['info'] = $p->getOne($id);
 		$new_qtd = $data['info']['quantity'];
+		$stock = $data['info']['quantity'];
 
-		if (!empty($_POST['s_price']) && $_POST['s_quantity'] > 0 && $_POST['s_quantity']) {
+		if (!empty($_POST['s_price']) && $_POST['s_quantity'] > 0 && $_POST['s_quantity'] <= $stock) {
 			$code = $_POST['code'];
 			$name = $_POST['name'];
 			$s_price = $f->filter_float('s_price');
