@@ -6,14 +6,13 @@ body {
 }
 
 .container {
-    width: 100vw;
-    min-height: 100vh;
+    width: 100%;
 }
 
 header,
 section, 
 footer {
-    width: 100vw;
+    width: 100%;
 }
 
 header {

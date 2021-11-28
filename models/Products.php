@@ -25,7 +25,7 @@ class Products extends Model {
     public function getOne($id, $code = null) {   
         $array = array();
 
-        if ($code != null) {
+        if (!empty($code)) {
             $number = $code;
         } else {
             $number = $id;
