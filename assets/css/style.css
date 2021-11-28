@@ -76,6 +76,20 @@ fieldset input {
 section table {
     width: 80vw;
     margin: auto;
+    border-radius: 10px;
+}
+
+#table_info {
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+table th, td {
+    border-radius: 6px;
+}
+
+table td {
+    padding-left: 10px;
 }
 
 section table tr:hover td {
@@ -157,18 +171,6 @@ table a:hover {
 .info {
     float: left;
     margin-top: 20px;
-}
-
-table {
-    border-radius: 10px;
-}
-
-table th, td {
-    border-radius: 6px;
-}
-
-table td {
-    padding-left: 10px;
 }
 
 #preview {

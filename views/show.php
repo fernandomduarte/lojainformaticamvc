@@ -13,7 +13,7 @@
     </div>
     
     <div class="info">
-        <table border="1" width="500">
+        <table border="1" width="500" id="table_info">
             <tr>
                 <th>Nome do Produto</th>
                 <td><?php echo $imagem['name']; ?></td>
