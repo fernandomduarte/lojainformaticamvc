@@ -19,7 +19,9 @@
 	<?php foreach($list as $item): ?>
 		<tr>
 			<td><?php echo $item['code']; ?></td>
-			<td><?php echo $item['name']; ?></td>
+			<td>
+				<a href="<?php echo BASE_URL; ?>image/show/<?php echo $item['code']; ?>" target="_blank"><?php echo $item['name']; ?></a>	
+			</td>
 			<td>R$ <?php echo number_format($item['price'], 2, ',', '.'); ?></td>
 			<td><?php echo $item['quantity']; ?></td>
 			<td>

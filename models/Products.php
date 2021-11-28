@@ -22,12 +22,18 @@ class Products extends Model {
         return $array;
     }
 
-    public function getOne($id) {   
+    public function getOne($id, $code = null) {   
         $array = array();
+
+        if ($code != null) {
+            $number = $code;
+        } else {
+            $number = $id;
+        }
              
-        $sql = "SELECT * FROM products WHERE id = :id";
+        $sql = "SELECT * FROM products WHERE id = :number OR code = :number";
         $sql = $this->db->prepare($sql);
-        $sql->bindValue(':id', $id);
+        $sql->bindValue(':number', $number);
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
@@ -86,5 +92,19 @@ class Products extends Model {
         }
         return $array;
     }
+
+    public function getImage($code) {
+		$array = array();
+
+		$sql = "SELECT url_image FROM products WHERE code = :code";
+		$sql = $this->db->prepare($sql);
+        $sql->bindValue(":code", $code);
+        $sql->execute();
+
+		if ($sql->rowCount() > 0) {
+			$array = $sql->fetch();
+		}
+		return $array;
+	}
 	
 }

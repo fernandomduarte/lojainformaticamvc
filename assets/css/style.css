@@ -11,7 +11,8 @@ body {
 }
 
 header,
-section {
+section, 
+footer {
     width: 100vw;
 }
 
@@ -139,12 +140,44 @@ table a:hover {
     color: #fff;
 }
 
+.image {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+    float: left;
+    
+}
 #big_image {
-    max-height: 100vh;
-    margin: auto;
+    max-width: 50vw;
+    min-height: 50vh;
+    max-height: 75vh;
+    border-radius: 10px;
+}
+
+.info {
+    float: left;
+    margin-top: 20px;
+}
+
+table {
+    border-radius: 10px;
+}
+
+table th, td {
+    border-radius: 6px;
+}
+
+table td {
+    padding-left: 10px;
 }
 
 #preview {
     width: 150px;
     height: 150px;
+}
+
+footer {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
 }

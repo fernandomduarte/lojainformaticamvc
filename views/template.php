@@ -25,6 +25,9 @@
 			$this->loadViewInTemplate($viewName, $viewData);
 			?>
 		</section>
+		<footer>
+			Developed by Fernando de Macedo Duarte
+		</footer>
 	</div>
 	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery.mask.js"></script>
