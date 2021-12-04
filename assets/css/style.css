@@ -49,7 +49,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-fieldset {
+#campo_busca {
     width: 80vw;
     margin: auto;
     border: 2px solid #013766;
@@ -58,7 +58,7 @@ fieldset {
     margin-bottom: 10px;
 }
 
-fieldset input {
+#campo_busca input {
     width:80vw; 
     height:40px; 
     font-size:20px;
