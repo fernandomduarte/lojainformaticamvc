@@ -1,6 +1,7 @@
 <h2>Editar produto</h2>
+
 <form class="form" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Deseja confirmar as informações deste produto?');">
-	
+
 	<div class="form-group">
 		<label>
 			Código de Barras:
@@ -36,7 +37,6 @@
 		</label><br/>
 	</div>
 
-	
 	<div class="form-group">
 		<label>
 			Carregar imagem do produto:
@@ -45,9 +45,8 @@
 		</label><br/>
 	</div>
 	
-
 	<div class="form-group">
-		<input type="submit" value="Atualizar">
+		<input type="submit" value="Atualizar Produto">
 	</div>
-
 </form>
+

@@ -41,11 +41,12 @@
 	<div class="form-group">
 		<label>
 			Carregar imagem do produto:
-			<input type="file" name="image" id="image" onchange="previewImage()"><br/>
-			<img id="preview" alt="">
+			<input type="file" name="image" id="image" onchange="previewImage()" required /></br> 
+			<img id="preview" alt=""> 
 		</label><br/>
 	</div>
 	-->
+	
 
 	<div class="form-group">
 		<input type="submit" value="Salvar">

@@ -2,6 +2,19 @@
 
 class productController extends Controller {
 
+	private $user;
+
+    public function __construct() {
+        parent::__construct();
+
+        $this->user = new Users();
+
+        if (!$this->user->checkLogin()) {
+            header("Location: ".BASE_URL."login");
+            exit;
+        }
+    }
+
 	public function add() {
 		$data = array();
 
@@ -33,6 +46,7 @@ class productController extends Controller {
 
 	public function edit($id) {
 		$data = array();
+		$image = array();
 			
 		$p = new Products();
 		$f = new FiltersHelper();
@@ -43,19 +57,14 @@ class productController extends Controller {
 			$min_quantity = filter_input(INPUT_POST, 'min_quantity', FILTER_VALIDATE_INT);
 			$price = $f->filter_float('price');
 
-			$granted = array('image/jpeg', 'image/jpg', 'image/png');
+			$image = $_FILES['image'];
+			$image = $this->saveImage($image);
 
-			if (in_array($_FILES['image']['type'], $granted)) {
-				$image_name = md5(time().rand(0,9999)).'.jpg';
+			if ($name && $quantity && $min_quantity && $price && $image) {
+				$p->editProduct($name, $quantity, $min_quantity, $price, $image, $id);
 
-				move_uploaded_file($_FILES['image']['tmp_name'], 'assets/images/'.$image_name);
-
-				if ($name && $quantity && $min_quantity && $price && $image_name) {
-					$p->editProduct($name, $quantity, $min_quantity, $price, $image_name, $id);
-	
-					header("Location: ".BASE_URL);
-					exit;
-				} 
+				header("Location: ".BASE_URL);
+				exit;
 			} 
 			header("Location: ".BASE_URL."edit");
 			exit;
@@ -101,7 +110,21 @@ class productController extends Controller {
 		$this->loadTemplate('sell', $data);
 	}
 
-	private function verifyProduct($code) {
+	private function saveImage($image) {
+		if ($image) {
+			$granted = array('image/jpeg', 'image/jpg', 'image/png');
+
+			if (in_array($_FILES['image']['type'], $granted)) {
+				$image_name = md5(time().rand(0,9999)).'.jpg';
+
+				move_uploaded_file($_FILES['image']['tmp_name'], 'assets/images/'.$image_name);
+
+				return $image_name;
+			}
+		} else {
+			return false;
+		}
+		
 		
 	}
 
