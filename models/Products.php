@@ -42,9 +42,9 @@ class Products extends Model {
         return $array;
     }
     
-	public function addProduct($code, $name, $price, $quantity, $min_quantity) {
-		$sql = "INSERT INTO products (code, name, price, quantity, min_quantity) VALUES (
-                :code, :name, :price, :quantity, :min_quantity)";
+	public function addProduct($code, $name, $price, $quantity, $min_quantity, $image) {
+		$sql = "INSERT INTO products (code, name, price, quantity, min_quantity, url_image) VALUES (
+                :code, :name, :price, :quantity, :min_quantity, :image)";
     
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":code", $code);
@@ -52,18 +52,28 @@ class Products extends Model {
         $sql->bindValue(":price", $price);
         $sql->bindValue(":quantity", $quantity);
         $sql->bindValue(":min_quantity", $min_quantity);
+        $sql->bindValue(":image", $image);
         $sql->execute();
 
         return true;
 	}
 
-    public function editProduct($name, $quantity, $min_quantity, $price, $image, $id) {
-        $sql = "UPDATE products SET name = :name, quantity = :quantity, min_quantity = :min_quantity, price = :price, url_image = :image WHERE id = :id";
+    public function editProduct($name, $quantity, $min_quantity, $price, $id) {
+        $sql = "UPDATE products SET name = :name, quantity = :quantity, min_quantity = :min_quantity, price = :price WHERE id = :id";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(':name', $name);
         $sql->bindValue(':quantity', $quantity);
         $sql->bindValue(':min_quantity', $min_quantity);
         $sql->bindValue(':price', $price);
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+
+        return true;
+    }
+
+    public function editImage($image, $id) {
+        $sql = "UPDATE products SET url_image = :image WHERE id = :id";
+        $sql = $this->db->prepare($sql);
         $sql->bindValue(':image', $image);
         $sql->bindValue(':id', $id);
         $sql->execute();

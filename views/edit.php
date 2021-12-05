@@ -1,6 +1,6 @@
 <h2>Editar produto</h2>
 
-<form class="form" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Deseja confirmar as informações deste produto?');">
+<form class="form" method="POST" onsubmit="return confirm('Deseja confirmar as informações deste produto?');">
 
 	<div class="form-group">
 		<label>
@@ -36,7 +36,14 @@
 			<input type="number" name="min_quantity" value="<?php echo $info['min_quantity']; ?>" required >
 		</label><br/>
 	</div>
+	
+	<div class="form-group">
+		<input type="submit" value="Atualizar Produto">
+	</div>
+</form>
+<hr/>
 
+<form class="form" enctype="multipart/form-data" method="post" onsubmit="return confirm('Deseja alterar a imagem deste produto?');">
 	<div class="form-group">
 		<label>
 			Carregar imagem do produto:
@@ -44,9 +51,9 @@
 			<img id="preview" src="<?php echo BASE_URL; ?>assets/images/<?php echo $info['url_image']; ?>" alt=""> 
 		</label><br/>
 	</div>
-	
+
 	<div class="form-group">
-		<input type="submit" value="Atualizar Produto">
+		<input type="submit" value="Atualizar Imagem">
 	</div>
 </form>
 

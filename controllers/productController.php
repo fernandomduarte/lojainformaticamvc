@@ -17,15 +17,19 @@ class productController extends Controller {
 
 	public function add() {
 		$data = array();
+		$image = array();
 
 		$p = new Products();
 		$f = new FiltersHelper();
 
-		if (!empty($_POST['name'])) {
+		if (!empty($_POST['name']) && isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
 			$name = ucfirst(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING));
 			$quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT);
 			$min_quantity = filter_input(INPUT_POST, 'min_quantity', FILTER_VALIDATE_INT);
 			$price = $f->filter_float('price');
+
+			$image = $_FILES['image'];
+			$image = $this->saveImage($image);
 
 			if (!empty($_POST['code'])) {
 				$code = filter_input(INPUT_POST, 'code', FILTER_VALIDATE_INT);
@@ -33,8 +37,8 @@ class productController extends Controller {
 				$code = rand(100000,999999);
 			}
 
-			if ($code && $name && $price && $quantity && $min_quantity) {
-				$p->addProduct($code, $name, $price, $quantity, $min_quantity);
+			if ($code && $name && $price && $quantity && $min_quantity && $image) {
+				$p->addProduct($code, $name, $price, $quantity, $min_quantity, $image);
 
 				header("Location: ".BASE_URL);
 				exit;
@@ -51,17 +55,27 @@ class productController extends Controller {
 		$p = new Products();
 		$f = new FiltersHelper();
 
-		if (!empty($_POST['name']) && isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
+		if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
+			$image = $_FILES['image'];
+			$image = $this->saveImage($image);
+
+			if ($image) {
+				$p->editImage($image, $id);
+
+				header("Location: ".BASE_URL);
+				exit;
+			}
+
+		}
+
+		if (!empty($_POST['name'])) {
 			$name = ucfirst(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING));
 			$quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT);
 			$min_quantity = filter_input(INPUT_POST, 'min_quantity', FILTER_VALIDATE_INT);
 			$price = $f->filter_float('price');
 
-			$image = $_FILES['image'];
-			$image = $this->saveImage($image);
-
-			if ($name && $quantity && $min_quantity && $price && $image) {
-				$p->editProduct($name, $quantity, $min_quantity, $price, $image, $id);
+			if ($name && $quantity && $min_quantity && $price) {
+				$p->editProduct($name, $quantity, $min_quantity, $price, $id);
 
 				header("Location: ".BASE_URL);
 				exit;

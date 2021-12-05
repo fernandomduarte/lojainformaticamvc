@@ -37,7 +37,6 @@
 		</label><br/>
 	</div>
 
-	<!--
 	<div class="form-group">
 		<label>
 			Carregar imagem do produto:
@@ -45,8 +44,6 @@
 			<img id="preview" alt=""> 
 		</label><br/>
 	</div>
-	-->
-	
 
 	<div class="form-group">
 		<input type="submit" value="Salvar">
