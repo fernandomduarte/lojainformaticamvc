@@ -3,8 +3,15 @@
 class loginController extends Controller {
 
     public function index() {
+        $msg = '';
+
+        if (!empty($_SESSION['msg'])) {
+            $msg = $_SESSION['msg'];
+            $_SESSION['msg'] = '';
+        }
+        
         $data = array(
-            'msg' => ''
+            'msg' => $msg
         );
 
         if (!empty($_POST['name']) && !empty($_POST['password'])) {
@@ -21,7 +28,10 @@ class loginController extends Controller {
                 exit;
 
             } else {
-                $data['msg'] = "Usuário e/ou senha incorretos";
+                $_SESSION['msg'] = "Usuário e/ou senha incorretos";
+                
+                header("Location: ".BASE_URL."login");
+                exit;
             }
         }
         $this->loadView('login', $data);
