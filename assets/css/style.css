@@ -173,8 +173,18 @@ table a:hover {
 }
 
 #preview {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+}
+
+.line {
+    width: 90vw;
+    height: 5px;
+    margin: auto;
+    background-color: #021e36;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 footer {

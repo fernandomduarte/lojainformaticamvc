@@ -13,13 +13,6 @@ $(document).ready(function(){
 	} else {
 		$('#barcode').attr('checked', false);
 	}
-
-	/**
-	 * Verfica se a foto esta carregada no formulário
-	**/
-	if ($('#preview').val() != '') {
-		$('#image').removeAttr('required');
-	} 
 	
 	// autofocus e máscara dos inputs
 	$('#search').focus();
