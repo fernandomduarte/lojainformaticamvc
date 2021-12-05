@@ -102,19 +102,5 @@ class Products extends Model {
         }
         return $array;
     }
-
-    public function getImage($code) {
-		$array = array();
-
-		$sql = "SELECT url_image FROM products WHERE code = :code";
-		$sql = $this->db->prepare($sql);
-        $sql->bindValue(":code", $code);
-        $sql->execute();
-
-		if ($sql->rowCount() > 0) {
-			$array = $sql->fetch();
-		}
-		return $array;
-	}
 	
 }

@@ -28,14 +28,14 @@ class productController extends Controller {
 			$min_quantity = filter_input(INPUT_POST, 'min_quantity', FILTER_VALIDATE_INT);
 			$price = $f->filter_float('price');
 
-			$image = $_FILES['image'];
-			$image = $this->saveImage($image);
-
 			if (!empty($_POST['code'])) {
 				$code = filter_input(INPUT_POST, 'code', FILTER_VALIDATE_INT);
 			} elseif (isset($_POST['barcode'])) {
 				$code = rand(100000,999999);
 			}
+			
+			$image = $_FILES['image'];
+			$image = $this->saveImage($image);
 
 			if ($code && $name && $price && $quantity && $min_quantity && $image) {
 				$p->addProduct($code, $name, $price, $quantity, $min_quantity, $image);
@@ -57,7 +57,7 @@ class productController extends Controller {
 
 		if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
 			$image = $_FILES['image'];
-			$image = $this->saveImage($image);
+			$image = $this->saveImage($image, $id);
 
 			if ($image) {
 				$p->editImage($image, $id);
@@ -124,21 +124,32 @@ class productController extends Controller {
 		$this->loadTemplate('sell', $data);
 	}
 
-	private function saveImage($image) {
+	private function saveImage($image, $id = null) {
 		if ($image) {
+
 			$granted = array('image/jpeg', 'image/jpg', 'image/png');
 
 			if (in_array($_FILES['image']['type'], $granted)) {
-				$image_name = md5(time().rand(0,9999)).'.jpg';
+				if (!empty($id)) {
+					$data = array();
+					$p = new Products();
+	
+					$data['info'] = $p->getOne($id);
 
+					if (!empty($data['info']['url_image'])) {
+						$image_name = $data['info']['url_image'];
+					}
+				} else {
+					$image_name = md5(time().rand(0,9999)).'.jpg';
+				}
 				move_uploaded_file($_FILES['image']['tmp_name'], 'assets/images/'.$image_name);
 
 				return $image_name;
 			}
+	
 		} else {
 			return false;
-		}
-		
+		}	
 		
 	}
 

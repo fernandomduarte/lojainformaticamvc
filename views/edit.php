@@ -41,7 +41,8 @@
 		<input type="submit" value="Atualizar Produto">
 	</div>
 </form>
-<hr/>
+
+<div class="line"></div>
 
 <form class="form" enctype="multipart/form-data" method="post" onsubmit="return confirm('Deseja alterar a imagem deste produto?');">
 	<div class="form-group">
