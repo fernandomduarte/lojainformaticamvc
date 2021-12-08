@@ -152,6 +152,7 @@ class productController extends Controller {
 
 					if (!empty($data['info']['url_image'])) {
 						$image_name = $data['info']['url_image'];
+						
 					}
 				} else {
 					$image_name = md5(time().rand(0,9999)).'.jpg';
