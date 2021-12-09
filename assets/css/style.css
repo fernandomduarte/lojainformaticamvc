@@ -84,7 +84,7 @@ section table {
 }
 
 table th, td {
-    border-radius: 6px;
+    border-radius: 10px;
 }
 
 table td {

@@ -58,9 +58,9 @@ class productController extends Controller {
 
 			if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
 				$image = $_FILES['image'];
-				$image = $this->saveImage($image, $id);
-
+			
 				if ($image) {
+					$image = $this->saveImage($image, $id);
 					$p->editImage($image, $id);
 
 					header("Location: ".BASE_URL);
@@ -140,10 +140,9 @@ class productController extends Controller {
 
 	private function saveImage($image, $id = null) {
 		if ($image) {
-
 			$granted = array('image/jpeg', 'image/jpg', 'image/png');
-
-			if (in_array($_FILES['image']['type'], $granted)) {
+			
+			if (in_array($image['type'], $granted)) {
 				if (!empty($id)) {
 					$data = array();
 					$p = new Products();
@@ -151,14 +150,17 @@ class productController extends Controller {
 					$data['info'] = $p->getOne($id);
 
 					if (!empty($data['info']['url_image'])) {
-						$image_name = $data['info']['url_image'];
+						$image_name = $data['info']['url_image'];	
 						
+					} else {
+						$image_name = md5(time().rand(0,9999)).'.jpg';
 					}
+					move_uploaded_file($image['tmp_name'], 'assets/images/'.$image_name);
+				
 				} else {
 					$image_name = md5(time().rand(0,9999)).'.jpg';
+					move_uploaded_file($image['tmp_name'], 'assets/images/'.$image_name);
 				}
-				move_uploaded_file($_FILES['image']['tmp_name'], 'assets/images/'.$image_name);
-
 				return $image_name;
 			}
 	
