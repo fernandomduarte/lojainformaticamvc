@@ -1,6 +1,6 @@
 <h2>Vender produto</h2>
-<form class="form" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Deseja vender este produto?');">
-	
+<form class="form" method="POST" onsubmit="return confirm('Deseja vender este produto?');">
+
 	<div class="form-group">
 		<label>
 			Código de Barras:

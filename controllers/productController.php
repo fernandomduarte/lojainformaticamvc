@@ -128,7 +128,7 @@ class productController extends Controller {
 					exit;
 				}
 
-			}
+			} 
 			$this->loadTemplate('sell', $data);
 			
 		} else {

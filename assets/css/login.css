@@ -27,7 +27,7 @@ body {
 
 input[type=text],
 input[type=password] {
-    width: 100%;
+    width: 300px;
     border-radius: 10px;
     height: 40px;
     font-size: 18px;
@@ -48,4 +48,15 @@ input[type=submit] {
     font-size: 15px;
     font-weight: bolder;
     color: #fff;
+}
+
+.msg {
+    width: 316px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }

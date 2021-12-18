@@ -187,6 +187,14 @@ table a:hover {
     margin-bottom: 10px;
 }
 
+.msg {
+    width: 500px;
+    height: 50px;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 10px;
+}
+
 footer {
     text-align: center;
     height: 50px;

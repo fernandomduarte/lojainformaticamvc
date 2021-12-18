@@ -11,7 +11,7 @@
 			<form method="POST" class="form">
 
 				<?php if(!empty($msg)): ?>
-					<?php echo $msg; ?>
+					<div class="msg"><?php echo $msg; ?></div>
 				<?php endif; ?>
 
 				<div class="form-group">
