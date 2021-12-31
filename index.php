@@ -5,7 +5,7 @@ require 'config.php';
 /** 
  * Foi adicionado no último condicional 'elseif' uma verificação se existe uma
  * pasta com o nome de helpers, caso existir ela é importada ao projeto 
- */
+**/
 
 spl_autoload_register(function ($class){
     if(file_exists('controllers/'.$class.'.php')) {

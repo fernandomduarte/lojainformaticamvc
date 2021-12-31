@@ -6,7 +6,7 @@ class Users extends Model {
 
     /**
      * Verifica se o usuário existe
-     */
+    **/
     public function verifyUser($name, $pass) {
         $sql = "SELECT * FROM users WHERE user_name = :name AND password = :pass";
         $sql = $this->db->prepare($sql);
@@ -23,7 +23,7 @@ class Users extends Model {
 
     /**
      * Gera-se o token e relaciona com o usuário que está logado
-     */
+    **/
     public function createToken($name) {
         $token = md5(time().rand(0,9999).time());
 
@@ -38,7 +38,7 @@ class Users extends Model {
 
     /**
      * Verifica se existe um token na sessão 
-     */
+    **/
     public function checkLogin() {
         if (!empty($_SESSION['token'])) {
             $token = $_SESSION['token'];

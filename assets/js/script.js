@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	/**
 	 * Trecho que verifica se código está preenchido, caso contrário checkbox marcado 
-	*/
+	**/
 	if ($('#code').val() == '') {
 		$('#barcode').attr('checked', true);
 
@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 /**
  * Revisão do código é necessário
-*/ 
+**/ 
 function previewImage() {
 	var imagem = document.querySelector('#image').files[0];
 	var preview = document.querySelector('#preview');
