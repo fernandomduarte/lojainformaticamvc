@@ -42,6 +42,14 @@ header .menu {
     transition: all 0.2s ease;
 }
 
+.title {
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    text-decoration: underline;
+}
 h2 {
     text-align: center;
     margin: 10px 0 0 0;
@@ -83,8 +91,13 @@ section table {
     max-width: 600px;
 }
 
-table th, td {
+table {
     border-radius: 10px;
+    border: 1px solid #013766;
+}
+th, td {
+    border-radius: 10px;
+    border: 1px solid #013766;
 }
 
 table td {
@@ -98,7 +111,7 @@ section table tr:hover td {
 }
 
 table a {
-    text-decoration: none;
+    text-decoration: none;    
     color: #1a1075;
     margin-left: 5px;
     margin-right: 5px;
@@ -106,15 +119,15 @@ table a {
 
 table a:hover {
     color: #fff;
+    text-decoration: underline;
+}
+table a .product-link:hover {
+    text-decoration: underline;
 }
 
 .form {
     width: 80vw;
     margin: auto;
-}
-
-.form .form-group {
-    margin-bottom: 10px;
 }
 
 .form input[type=text],

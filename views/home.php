@@ -1,11 +1,12 @@
 <fieldset id="campo_busca">
 	<form method="get">
-		<input type="text" name="search" id="search" placeholder="Digite o código de barras ou o nome do produto..." value="<?php echo (!empty($_GET['search'])) ? $_GET['search']: '' ;?>">
+		<input type="search" name="search" id="search" placeholder="Digite o código de barras ou o nome do produto..." value="<?php echo (!empty($_GET['search'])) ? $_GET['search']: '' ;?>">
 	</form>
 </fieldset>
 
-<h2>Produtos em Estoque</h2>
-<table border="1">
+<div class="title">Produtos em Estoque</div>
+
+<table border=1>
 	<thead>
 		<tr>
 			<th>Cód.</th>

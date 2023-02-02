@@ -6,8 +6,8 @@ global $db;
 
 $config = array();
 if(ENVIRONMENT == 'development') {
-	define("BASE_URL", "http://localhost/fernandoduarte.lojainformaticamvc/");
-	$config['dbname'] = 'fernandoduarte_lojainformaticamvc';
+	define("BASE_URL", "http://localhost/lojainformaticamvc/");
+	$config['dbname'] = 'lojainformaticamvc';
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';

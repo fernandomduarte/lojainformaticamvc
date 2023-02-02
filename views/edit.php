@@ -1,5 +1,4 @@
-<h2>Editar produto</h2>
-
+<div class="title">Editar produto</div>
 <form class="form" method="POST" onsubmit="return confirm('Deseja confirmar as informações deste produto?');">
 
 	<div class="form-group">

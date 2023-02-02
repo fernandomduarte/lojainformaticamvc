@@ -38,6 +38,7 @@ class productController extends Controller {
 			$image = $this->saveImage($image);
 
 			if ($code && $name && $price && $quantity && $min_quantity && $image) {
+
 				$p->addProduct($code, $name, $price, $quantity, $min_quantity, $image);
 
 				header("Location: ".BASE_URL);

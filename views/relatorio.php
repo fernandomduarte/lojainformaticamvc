@@ -1,5 +1,4 @@
-<h2>Relatório</h2>
-
+<div class="title">Produtos à comprar</div>
 <table border="1">
     <thead>
         <tr>

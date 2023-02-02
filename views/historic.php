@@ -1,5 +1,4 @@
-<h2>Histórico de Vendas</h2>
-
+<div class="title">Histórico de vendas</div>
 <table border="1">
 	<thead>
 		<tr>
@@ -19,7 +18,7 @@
 			<td><?php echo $item_vendido['quantity']; ?></td>
 			<td>R$ <?php echo number_format($item_vendido['value'], 2, ',', '.'); ?></td>
             <td>R$ <?php echo number_format(floatval($item_vendido['value'] * $item_vendido['quantity']), 2, ',', '.'); ?></td>
-			<td><?php echo date('H:i d/m/Y', strtotime($item_vendido['datetime'])); ?></td>
+			<td><?php echo date('d/m/Y H:i', strtotime($item_vendido['datetime'])); ?></td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>

@@ -11,7 +11,7 @@ class Users extends Model {
         $sql = "SELECT * FROM users WHERE user_name = :name AND password = :pass";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(':name', $name);
-        $sql->bindValue(':pass', $pass);
+        $sql->bindValue(':pass', ($pass));
         $sql->execute();
 
         if ($sql->rowCount() > 0) {
