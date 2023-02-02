@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 26/12/2022 às 16:55
+-- Tempo de geração: 02/02/2023 às 12:26
 -- Versão do servidor: 10.4.27-MariaDB
 -- Versão do PHP: 8.1.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `lojainformaticamvc`
+-- Banco de dados: `mydb_lojainformaticamvc`
 --
 
 -- --------------------------------------------------------
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `code` int(30) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `name` varchar(200) NOT NULL,
   `price` float NOT NULL,
   `quantity` int(11) NOT NULL,
   `min_quantity` int(11) NOT NULL,
@@ -42,8 +42,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `code`, `name`, `price`, `quantity`, `min_quantity`, `url_image`) VALUES
-(1, 434979, 'Película samsung galaxy A10', 19.9, 28, 5, 'df60ad59644f9c0bbd3663b97e4e0055.jpg'),
-(2, 460526, 'Fones de ouvido philco com bluetooth', 79, 4, 1, '6dcc73c40faf539a1f6cd2ed53a8d999.jpg');
+(1, 434979, 'Película samsung galaxy A10', 19.9, 27, 5, 'df60ad59644f9c0bbd3663b97e4e0055.jpg'),
+(2, 460526, 'Fones de ouvido philco com bluetooth', 79, 3, 1, '6dcc73c40faf539a1f6cd2ed53a8d999.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,9 @@ CREATE TABLE `sales` (
 INSERT INTO `sales` (`id`, `product_code`, `product_name`, `value`, `quantity`, `datetime`) VALUES
 (1, 434979, 'Película samsung galaxy A10', 19, 1, '2022-12-26 12:26:25'),
 (2, 434979, 'Película samsung galaxy A10', 19.9, 1, '2022-12-26 12:34:23'),
-(3, 460526, 'Fones de ouvido philco com bluetooth', 79, 1, '2022-12-26 12:36:43');
+(3, 460526, 'Fones de ouvido philco com bluetooth', 79, 1, '2022-12-26 12:36:43'),
+(4, 460526, 'Fones de ouvido philco com bluetooth', 79, 1, '2022-12-29 12:06:28'),
+(5, 434979, 'Película samsung galaxy A10', 18, 1, '2022-12-29 12:06:56');
 
 -- --------------------------------------------------------
 
@@ -87,7 +89,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `token`) VALUES
-(1, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', '354ec18a7eecfa950342bf61852fe79a');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '9d79e7da3574302e703b321570c9b6b4');
 
 --
 -- Índices para tabelas despejadas
@@ -125,7 +127,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de tabela `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `users`

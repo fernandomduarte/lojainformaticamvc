@@ -16,7 +16,7 @@ class loginController extends Controller {
 
         if (!empty($_POST['name']) && !empty($_POST['password'])) {
             $user = $_POST['name'];
-            $pass = md5($_POST['password']);
+            $pass = $_POST['password'];
 
             $u = new Users();
 

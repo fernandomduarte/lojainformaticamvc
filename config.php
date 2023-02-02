@@ -7,15 +7,15 @@ global $db;
 $config = array();
 if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/lojainformaticamvc/");
-	$config['dbname'] = 'lojainformaticamvc';
+	$config['dbname'] = 'mydb_lojainformaticamvc';
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
 } else {
-	define("BASE_URL", "...");
-	$config['dbname'] = '...';
-	$config['host'] = '...';
-	$config['dbuser'] = '...';
+	define("BASE_URL", "");
+	$config['dbname'] = '';
+	$config['host'] = '';
+	$config['dbuser'] = '';
 	$config['dbpass'] = '';
 }
 
